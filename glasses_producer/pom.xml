@@ -22,8 +22,6 @@
 
     <dependencies>
 
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
@@ -59,11 +57,11 @@
             <version>6.0.1.GA</version>
         </dependency>
         <!-- 增加Jackson的Hibernate类型支持 -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-hibernate5</artifactId>
-            <version>2.9.8</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.datatype</groupId>-->
+            <!--<artifactId>jackson-datatype-hibernate5</artifactId>-->
+            <!--<version>2.9.8</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -88,12 +86,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- beetlSQL 3-->
-        <dependency>
-            <groupId>com.ibeetl</groupId>
-            <artifactId>sql-springboot-starter</artifactId>
-            <version>3.2.8-RELEASE</version>
-        </dependency>
+        <!-- beetlSQL 3 -->
+        <!--<dependency>-->
+            <!--<groupId>com.ibeetl</groupId>-->
+            <!--<artifactId>sql-springboot-starter</artifactId>-->
+            <!--<version>3.2.8-RELEASE</version>-->
+        <!--</dependency>-->
         <!-- beetlSQL2-->
         <!--<dependency>-->
             <!--<groupId>com.ibeetl</groupId>-->
@@ -106,7 +104,7 @@
             <!--<version>1.2.14.RELEASE</version>-->
         <!--</dependency>-->
 
-
+<!-- dao 相关 -->
         <!-- mysql的驱动依赖 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -117,7 +115,13 @@
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>4.0.1</version>
+            <version>3.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.2</version>
         </dependency>
 
     </dependencies>
