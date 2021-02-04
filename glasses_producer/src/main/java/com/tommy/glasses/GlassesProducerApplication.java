@@ -1,6 +1,5 @@
 package com.tommy.glasses;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
@@ -14,7 +13,6 @@ import java.util.TimeZone;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.tommy.glasses.dao")
 public class GlassesProducerApplication {
 
     public static void main(String[] args) {
