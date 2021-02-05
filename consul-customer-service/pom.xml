@@ -11,7 +11,7 @@
 	<groupId>geektime.spring.springbucks</groupId>
 	<artifactId>customer-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customer-service</name>
+	<name>glassesShop-customer-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -60,6 +60,26 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- mysql的驱动依赖 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- 数据库连接池 -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+		<!-- beetlSQL 3 -->
+		<dependency>
+		<groupId>com.ibeetl</groupId>
+		<artifactId>sql-springboot-starter</artifactId>
+		<version>3.2.8-RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>

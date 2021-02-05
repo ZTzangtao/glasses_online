@@ -1,4 +1,4 @@
-package geektime.spring.springbucks.customer.model;
+package com.tommy.onlineglasses.customer.model;
 
 import lombok.Builder;
 import lombok.Getter;

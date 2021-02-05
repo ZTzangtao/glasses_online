@@ -1,4 +1,4 @@
-package geektime.spring.springbucks.customer.model;
+package com.tommy.onlineglasses.customer.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,9 @@ import org.joda.money.Money;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author zangtao
+ */
 @Data
 @Builder
 @NoArgsConstructor

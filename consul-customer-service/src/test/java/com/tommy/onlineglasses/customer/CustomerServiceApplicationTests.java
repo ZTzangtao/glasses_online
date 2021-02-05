@@ -1,4 +1,4 @@
-package geektime.spring.springbucks.customer;
+package com.tommy.onlineglasses.customer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
