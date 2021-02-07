@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version 1.0
  */
 @RestController
-public class UerController {
+public class UserController {
 
     @Autowired
     private UserTestService userTestService;

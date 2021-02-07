@@ -1,4 +1,4 @@
-package com.tommy.onlineglasses.customer.dao;
+package com.tommy.onlineglasses.customer.mapper;
 
 import com.tommy.onlineglasses.customer.model.User;
 import org.beetl.sql.mapper.BaseMapper;

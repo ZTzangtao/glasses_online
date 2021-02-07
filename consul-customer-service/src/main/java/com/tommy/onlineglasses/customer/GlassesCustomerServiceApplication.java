@@ -5,13 +5,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+/**
+ * @author zangtao
+ */
 @SpringBootApplication
 @Slf4j
 @EnableDiscoveryClient
-public class CustomerServiceApplication {
+public class GlassesCustomerServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CustomerServiceApplication.class, args);
+		SpringApplication.run(GlassesCustomerServiceApplication.class, args);
 	}
 
 //	@Bean

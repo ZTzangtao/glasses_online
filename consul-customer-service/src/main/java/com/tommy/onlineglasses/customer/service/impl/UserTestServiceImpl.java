@@ -1,7 +1,8 @@
 package com.tommy.onlineglasses.customer.service.impl;
 
-import com.tommy.onlineglasses.customer.dao.UserTestMapper;
+import com.tommy.onlineglasses.customer.mapper.UserTestMapper;
 import com.tommy.onlineglasses.customer.service.UserTestService;
+import org.beetl.sql.core.SQLManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,9 @@ public class UserTestServiceImpl implements UserTestService {
 
     @Autowired
     UserTestMapper userTestMapper;
+
+    @Autowired
+    SQLManager sqlManager;
 
     @Override
     public Object userTest() {
