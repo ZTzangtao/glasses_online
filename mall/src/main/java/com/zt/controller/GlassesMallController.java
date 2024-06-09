@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,9 @@ public class GlassesMallController {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @GetMapping("mongoTest")
     public void mongoTest() throws InterruptedException {
@@ -57,5 +61,27 @@ public class GlassesMallController {
 
         mongoTemplate.remove(updateOne);
 
+    }
+
+    @GetMapping("jedisTest")
+    public void jedisTest() {
+        redisTemplate.boundValueOps("zz").set("brandGlasses");
+        String name = redisTemplate.boundValueOps("zz").get().toString();
+        log.info(name);
+        redisTemplate.delete("zz");
+//        log.info(jedisPoolConfig.toString());
+//        ModelGlassesCommodity gucciGlasses = ModelGlassesCommodity.builder()
+//                .name("gucci")
+//                .price(Money.of(CurrencyUnit.of("CNY"), 1899.00))
+//                .createTime(new Date())
+//                .updateTime(new Date()).build();
+//        try (Jedis jedis = jedisPool.getResource()) {
+//            jedis.hset("gucciGlasses", gucciGlasses.getName(), Long.toString(gucciGlasses.getPrice().getAmountMinorLong()));
+//            Map<String, String> map = jedis.hgetAll("gucciGlasses");
+//            log.info("map: {}", map);
+//
+//            String price = jedis.hget("gucciGlasses", "gucci");
+//            log.info("gucci price - {}", Money.ofMinor(CurrencyUnit.of("CNY"), Long.parseLong(price)));
+//        }
     }
 }
