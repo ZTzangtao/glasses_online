@@ -7,6 +7,9 @@ import com.zt.service.GlassesMallService;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
+import org.redisson.Redisson;
+import org.redisson.api.RBucket;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -41,9 +44,20 @@ public class GlassesMallTestController {
     @Autowired
     private GlassesMallService glassesMallService;
 
+    @Autowired
+    private RedissonClient redissonClient;
+
     @PostMapping("testBeetlSql")
     public Response testBeetlSql () {
         return glassesMallService.testBeetlSql();
+    }
+    @PostMapping("testRedisson")
+    public Response testRedisson () {
+        RBucket<String> bucket = redissonClient.getBucket("zt");
+        bucket.set("kyrie suck");
+        System.out.println(bucket.get());
+        System.out.println( bucket.delete());
+        return Response.success(bucket.delete());
     }
 
     @GetMapping("mongoTest")

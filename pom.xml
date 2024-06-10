@@ -32,6 +32,7 @@
         <HikariCP.version>5.1.0</HikariCP.version>
         <mysql.version>8.0.33</mysql.version>
         <beetlSql.version>3.30.9-RELEASE</beetlSql.version>
+        <reddsion.version>3.31.0</reddsion.version>
     </properties>
 
     <dependencyManagement>
@@ -62,9 +63,15 @@
                 <version>${beetlSql.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${reddsion.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
