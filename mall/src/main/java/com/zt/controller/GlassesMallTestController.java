@@ -7,7 +7,6 @@ import com.zt.service.GlassesMallService;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
-import org.redisson.Redisson;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,7 +87,7 @@ public class GlassesMallTestController {
 
     }
 
-    @GetMapping("jedisTest")
+    @GetMapping("redisTemplateTest")
     public void jedisTest() {
         redisTemplate.boundValueOps("zz").set("brandGlasses");
         String name = redisTemplate.boundValueOps("zz").get().toString();
