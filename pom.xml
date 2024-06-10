@@ -23,16 +23,19 @@
     </parent>
 
     <properties>
+        <glasses.latest.version>1.0.0-SNAPSHOT</glasses.latest.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <spring-cloud.version>2023.0.2</spring-cloud.version>
-        <glasses.latest.version>1.0.0-SNAPSHOT</glasses.latest.version>
+
         <HikariCP.version>5.1.0</HikariCP.version>
         <mysql.version>8.0.33</mysql.version>
         <beetlSql.version>3.30.9-RELEASE</beetlSql.version>
         <reddsion.version>3.31.0</reddsion.version>
+        <jedis.version>5.1.3</jedis.version>
+        <start.redis.version>3.3.0</start.redis.version>
     </properties>
 
     <dependencyManagement>
@@ -68,6 +71,20 @@
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${reddsion.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${start.redis.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>

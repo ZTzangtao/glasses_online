@@ -18,6 +18,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.Jedis;
 
 import java.util.Date;
 import java.util.List;
@@ -46,18 +47,22 @@ public class GlassesMallTestController {
     @Autowired
     private RedissonClient redissonClient;
 
+    @Autowired
+    private Jedis jedis;
+
     @PostMapping("testBeetlSql")
     public Response testBeetlSql () {
         return glassesMallService.testBeetlSql();
     }
-    @PostMapping("testRedisson")
-    public Response testRedisson () {
-        RBucket<String> bucket = redissonClient.getBucket("zt");
-        bucket.set("kyrie suck");
-        System.out.println(bucket.get());
-        System.out.println( bucket.delete());
-        return Response.success(bucket.delete());
-    }
+
+//    @PostMapping("testRedisson")
+//    public Response testRedisson () {
+//        RBucket<String> bucket = redissonClient.getBucket("zt");
+//        bucket.set("kyrie suck");
+//        System.out.println(bucket.get());
+//        System.out.println( bucket.delete());
+//        return Response.success(bucket.delete());
+//    }
 
     @GetMapping("mongoTest")
     public void mongoTest() throws InterruptedException {
@@ -89,23 +94,6 @@ public class GlassesMallTestController {
 
     @GetMapping("redisTemplateTest")
     public void jedisTest() {
-        redisTemplate.boundValueOps("zz").set("brandGlasses");
-        String name = redisTemplate.boundValueOps("zz").get().toString();
-        log.info(name);
-        redisTemplate.delete("zz");
-//        log.info(jedisPoolConfig.toString());
-//        ModelGlassesCommodity gucciGlasses = ModelGlassesCommodity.builder()
-//                .name("gucci")
-//                .price(Money.of(CurrencyUnit.of("CNY"), 1899.00))
-//                .createTime(new Date())
-//                .updateTime(new Date()).build();
-//        try (Jedis jedis = jedisPool.getResource()) {
-//            jedis.hset("gucciGlasses", gucciGlasses.getName(), Long.toString(gucciGlasses.getPrice().getAmountMinorLong()));
-//            Map<String, String> map = jedis.hgetAll("gucciGlasses");
-//            log.info("map: {}", map);
-//
-//            String price = jedis.hget("gucciGlasses", "gucci");
-//            log.info("gucci price - {}", Money.ofMinor(CurrencyUnit.of("CNY"), Long.parseLong(price)));
-//        }
+        System.out.println(jedis.get("zt"));
     }
 }
