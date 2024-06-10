@@ -29,6 +29,9 @@
         <maven.compiler.target>17</maven.compiler.target>
         <spring-cloud.version>2023.0.2</spring-cloud.version>
         <glasses.latest.version>1.0.0-SNAPSHOT</glasses.latest.version>
+        <HikariCP.version>5.1.0</HikariCP.version>
+        <mysql.version>8.0.33</mysql.version>
+        <beetlSql.version>3.30.9-RELEASE</beetlSql.version>
     </properties>
 
     <dependencyManagement>
@@ -40,6 +43,23 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${HikariCP.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ibeetl</groupId>
+                <artifactId>sql-springboot-starter</artifactId>
+                <version>${beetlSql.version}</version>
             </dependency>
 
 

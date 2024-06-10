@@ -1,7 +1,9 @@
 package com.zt.controller;
 
 import com.mongodb.client.result.UpdateResult;
+import com.zt.base.Response;
 import com.zt.model.ModelGlassesCommodity;
+import com.zt.service.GlassesMallService;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
@@ -12,6 +14,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -27,13 +30,21 @@ import static org.springframework.data.mongodb.core.query.Query.query;
  */
 @RestController
 @Slf4j
-public class GlassesMallController {
+public class GlassesMallTestController {
 
     @Autowired
     private MongoTemplate mongoTemplate;
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private GlassesMallService glassesMallService;
+
+    @PostMapping("testBeetlSql")
+    public Response testBeetlSql () {
+        return glassesMallService.testBeetlSql();
+    }
 
     @GetMapping("mongoTest")
     public void mongoTest() throws InterruptedException {
